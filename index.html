@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AutoClicker — Real Satisfying Sounds</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#07090d;color:#f6f7f9;font-family:Arial,system-ui,sans-serif;min-height:100vh}.app{width:min(1080px,94vw);margin:35px auto;background:#11161e;border:1px solid #29313c;border-radius:20px;overflow:hidden;box-shadow:0 25px 80px #0009}.top{padding:28px 34px;border-bottom:1px solid #252d37}.eyebrow{font-size:10px;letter-spacing:2px;color:#778392;font-weight:bold}.top h1{margin:5px 0;font-size:30px}.top p{margin:0;color:#7f8996;font-size:13px}.body{padding:26px 34px}.status{display:flex;align-items:center;justify-content:space-between;background:#0c1016;border:1px solid #252d37;border-radius:15px;padding:25px;margin-bottom:18px}.status small{color:#75808d;font-size:10px;letter-spacing:1.5px;font-weight:bold}.state{font-size:30px;font-weight:800;margin-top:4px}.desc{color:#75808d;font-size:12px}#toggle{width:130px;height:62px;border:1px solid #39434f;border-radius:40px;background:#171d25;position:relative;cursor:pointer}#toggle .knob{position:absolute;top:7px;left:7px;width:46px;height:46px;border-radius:50%;background:#929ba6;transition:.2s}#toggle .word{position:absolute;right:15px;top:23px;color:#77818d;font-weight:bold;font-size:11px}#toggle.on{background:#17412d;border-color:#4eaa76;box-shadow:0 0 25px #45c47c22}#toggle.on .knob{left:77px;background:#63d894;box-shadow:0 0 15px #63d89477}#toggle.on .word{left:15px;right:auto;color:#70e3a1}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{background:#0c1016;border:1px solid #252d37;border-radius:15px;padding:22px}.title{font-weight:bold;font-size:14px;margin-bottom:18px}.row{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #202731;padding:13px 0;color:#9ca6b2;font-size:12px}.row:first-of-type{border-top:0}input,select{background:#11171f;color:#eee;border:1px solid #303946;border-radius:7px;padding:9px}.interval-box{display:flex;gap:7px;align-items:center}.interval-box input{width:90px}.interval-box select{width:90px}.actual{margin-top:8px;color:#687584;font-size:10px;text-align:right;line-height:1.4}.key{display:inline-block;padding:8px 12px;border:1px solid #3a4450;border-radius:7px;color:#b7c0ca;background:#151b23;cursor:pointer;font-weight:bold}.key.listening{border-color:#63d894;color:#70e3a1;box-shadow:0 0 14px #63d89433}.switch{position:relative;width:48px;height:26px;display:inline-block}.switch input{opacity:0;width:0;height:0}.switch span{position:absolute;inset:0;background:#202832;border:1px solid #39434f;border-radius:20px;cursor:pointer;transition:.2s}.switch span:before{content:"";position:absolute;width:18px;height:18px;left:3px;top:3px;border-radius:50%;background:#89939e;transition:.2s}.switch input:checked+span{background:#17412d;border-color:#4eaa76}.switch input:checked+span:before{transform:translateX(22px);background:#63d894;box-shadow:0 0 10px #63d89466}.switchBtn{position:relative;width:48px;height:26px;border:0;background:#202832;border:1px solid #39434f;border-radius:20px;cursor:pointer;padding:0}.switchBtn span{position:absolute;width:18px;height:18px;left:3px;top:3px;border-radius:50%;background:#89939e;transition:.2s}.switchBtn.on{background:#17412d;border-color:#4eaa76}.switchBtn.on span{transform:translateX(22px);background:#63d894;box-shadow:0 0 10px #63d89466}.switchBtn:focus-visible{outline:2px solid #63d894;outline-offset:2px}.random-sound{margin-top:16px;width:100%;padding:12px 16px;border:1px solid #3a4450;border-radius:9px;background:#151b23;color:#f2f4f6;font-weight:800;cursor:pointer;transition:.12s transform,.12s background}.random-sound:hover{background:#1b232d}.random-sound:active{transform:scale(.98)}.stats .num{font-size:25px;font-weight:bold;color:#fff}.sound-note{color:#687584;font-size:10px;margin-top:14px;line-height:1.5}.arena{margin-top:18px;background:#0c1016;border:1px solid #252d37;border-radius:15px;padding:30px;text-align:center}.arena-title{font-weight:bold;margin-bottom:8px}.arena-help{color:#697583;font-size:11px;margin:0 0 25px}#target{width:min(700px,90%);height:260px;border:8px solid #9b0000;border-radius:32px;background:linear-gradient(#ff3737,#d40000);box-shadow:inset 0 -18px 0 #a00000,0 14px 0 #640000,0 25px 45px #0009;color:white;font-size:clamp(35px,7vw,78px);font-weight:1000;letter-spacing:2px;text-shadow:0 4px 0 #950000;cursor:pointer;transition:transform .06s,box-shadow .06s}#target:hover{background:linear-gradient(#ff4848,#dc0000)}#target:active,#target.flash{transform:translateY(12px) scale(.985);box-shadow:inset 0 -5px 0 #a00000,0 3px 0 #640000,0 15px 25px #0009}.hint{margin-top:22px;color:#677382;font-size:11px}#target{position:relative;overflow:hidden;isolation:isolate}#target::after{content:"";position:absolute;inset:-35%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.32) 0 4%,rgba(255,255,255,0) 24%);opacity:0;transform:scale(.2);pointer-events:none;z-index:-1}#target.flash{animation:buttonPop .18s cubic-bezier(.2,.9,.25,1.35),buttonGlow .28s ease-out}#target.flash::after{animation:ripple .28s ease-out}@keyframes buttonPop{0%{transform:translateY(12px) scale(.985)}45%{transform:translateY(-5px) scale(1.025)}100%{transform:translateY(0) scale(1)}}@keyframes buttonGlow{0%{filter:brightness(1)}35%{filter:brightness(1.28)}100%{filter:brightness(1)}}@keyframes ripple{0%{opacity:.65;transform:scale(.2)}100%{opacity:0;transform:scale(1.35)}}@media(max-width:700px){.grid{grid-template-columns:1fr}.body{padding:20px}.status{align-items:flex-start;gap:15px}.status #toggle{flex:none}.app{margin:12px auto}.interval-box input{width:72px}.interval-box select{width:80px}}
+</style>
+</head>
+<body><div class="app"><div class="top"><div class="eyebrow">BROWSER AUTOCLICKER</div><h1>AutoClicker</h1><p>Real sound effects, giant button, custom hotkey, and an ultra-wide interval picker.</p></div><div class="body">
+<div class="status"><div><small>CLICKER STATUS</small><div class="state" id="state">OFF</div><div class="desc" id="desc">Click the switch or press F6</div></div><button id="toggle" type="button"><span class="knob"></span><span class="word">OFF</span></button></div>
+<div class="grid"><div class="panel"><div class="title">Click settings</div>
+<div class="row"><span>Click interval</span><span><div class="interval-box"><input id="intervalValue" type="number" min="250" max="60000" step="1" value="250"><select id="intervalUnit"><option value="0.001">ms</option><option value="1">sec</option><option value="60">min</option></select></div><div class="actual" id="actual">Requested: 250 ms · engine interval ≈ 250 ms</div></span></div>
+<div class="row"><span>Click limit</span><span><input id="limit" type="number" min="0" value="0" style="width:100px"> <small>0 = unlimited</small></span></div>
+<div class="row"><span>Hotkey</span><button id="hotkeyBtn" class="key" type="button">F6</button></div>
+<div class="row"><span>Activation mode</span><select id="mode"><option value="toggle">Sticky / Toggle</option><option value="hold">Hold to click</option></select></div>
+<div class="row"><span>Autoclick target</span><select id="clickTarget"><option value="red">Red button</option><option value="random">Random sound button</option></select></div>
+</div><div class="panel stats"><div class="title">Session</div><div class="row"><span>Clicks</span><span class="num" id="clicks">0</span></div><div class="row"><span>Elapsed</span><span id="elapsed">00:00</span></div><div class="row"><span>Rate</span><span id="rate">0 / sec</span></div></div></div>
+<div class="sound-panel panel" style="margin-top:18px"><div class="title">Real satisfying sounds</div>
+<div class="row"><span>🫧 Plastic bubble click</span><label class="switch"><input id="soundBubble" type="checkbox" checked><span></span></label></div>
+<div class="row"><span>💧 Hard pop click</span><label class="switch"><input id="soundPop" type="checkbox"><span></span></label></div>
+<div class="row"><span>🖱️ Classic mouse click</span><label class="switch"><input id="soundClassic" type="checkbox"><span></span></label></div>
+<div class="row"><span>🎲 Randomizer mode</span><button id="randomSwitch" class="switchBtn" type="button" role="switch" aria-checked="false"><span></span></button></div><button id="randomSound" class="random-sound" type="button">🎲 Play Random Sound</button><div class="sound-note">Randomizer mode is independent from the three sound switches. Turning it on disables those switches; it stays on until the red button is clicked, which exits random mode and selects the first sound.</div></div>
+<div class="arena"><div class="arena-title">SATISFYING CLICK ZONE</div><p class="arena-help">Press the button for a real sound effect and animation.</p><button id="target" type="button">CLICK ME</button><div class="hint">Autoclicker target can be the red button or the random-sound button. <span class="key" id="hotkeyHint">F6</span> toggles it.</div></div>
+</div></div>
+<audio id="audioBubble" preload="auto" src="https://assets.mixkit.co/active_storage/sfx/1124/1124-preview.mp3"></audio>
+<audio id="audioPop" preload="auto" src="https://assets.mixkit.co/active_storage/sfx/2364/2364-preview.mp3"></audio>
+<audio id="audioClassic" preload="auto" src="https://assets.mixkit.co/active_storage/sfx/1117/1117-preview.mp3"></audio>
+<script>
+(()=>{
+let running=false,timer=null,clock=null,clicks=0,started=0,hotkey='F6',waiting=false,held=false,lastSound=0,randomMode=false,randomTargetWas='red',programmaticTargetClick=false;
+const $=id=>document.getElementById(id),toggle=$('toggle'),target=$('target'),randomBtn=$('randomSound'),randomSwitch=$('randomSwitch');
+const sounds=[['soundBubble','audioBubble'],['soundPop','audioPop'],['soundClassic','audioClassic']];
+function intervalMs(){const v=Number($('intervalValue').value),u=Number($('intervalUnit').value);return Math.min(60000,Math.max(250,(Number.isFinite(v)?v:250)*u*1000))}
+function syncIntervalBounds(){const input=$('intervalValue'),u=Number($('intervalUnit').value);if(u===0.001){input.min='250';input.max='60000';input.step='1';if(Number(input.value)<250||!Number.isFinite(Number(input.value)))input.value='250';if(Number(input.value)>60000)input.value='60000'}else if(u===1){input.min='0.25';input.max='60';input.step='0.01';if(Number(input.value)<0.25||!Number.isFinite(Number(input.value)))input.value='0.25';if(Number(input.value)>60)input.value='60'}else{input.min='0.00416667';input.max='1';input.step='0.001';if(Number(input.value)<0.00416667||!Number.isFinite(Number(input.value)))input.value='0.00416667';if(Number(input.value)>1)input.value='1'}}
+function updateIntervalLabel(){syncIntervalBounds();const raw=Number($('intervalValue').value),unit=$('intervalUnit').selectedOptions[0].textContent,ms=intervalMs();let shown=ms>=60000?'60 sec':ms>=1000?(ms/1000).toFixed(3)+' sec':ms.toFixed(0)+' ms';$('actual').textContent=`Requested: ${raw} ${unit} · engine interval ≈ ${shown}`}
+function playOne(id){const a=$(id);try{a.pause();a.currentTime=0;a.play().catch(()=>{})}catch(e){}}
+function playSounds(){const now=performance.now();if(now-lastSound<4)return;lastSound=now;const enabled=sounds.filter(([check])=>$(check).checked);if(!enabled.length)return;enabled.forEach(([,id])=>playOne(id))}
+function playRandomSound(){const now=performance.now();if(now-lastSound<4)return;lastSound=now;const pool=sounds;const choice=pool[Math.floor(Math.random()*pool.length)];playOne(choice[1]);randomBtn.classList.remove('flash');void randomBtn.offsetWidth;randomBtn.classList.add('flash')}
+function renderRandomMode(){
+  randomSwitch.classList.toggle('on', randomMode);
+  randomSwitch.setAttribute('aria-checked', String(randomMode));
+  sounds.forEach(([check]) => {
+    const el = $(check);
+    el.disabled = randomMode;
+    if (randomMode) el.checked = false;
+  });
+  randomBtn.textContent = randomMode ? '🎲 Random Sound: ON' : '🎲 Play Random Sound';
+  randomBtn.style.borderColor = randomMode ? '#63d894' : '';
+  randomBtn.setAttribute('aria-pressed', String(randomMode));
+}
+function enterRandomMode(){
+  if(randomMode)return;
+  randomTargetWas = $('clickTarget').value;
+  randomMode = true;
+  // While Randomizer is active, the autoclicker must target the random-sound button.
+  // Otherwise an already-running red-button autoclicker would immediately click the red button
+  // and correctly exit Randomizer before the user can use it.
+  $('clickTarget').value='random';
+  renderRandomMode();
+  if(running) draw();
+  playRandomSound();
+}
+function exitRandomModeAndSelectFirst(){
+  if(!randomMode)return;
+  randomMode=false;
+  $('clickTarget').value=randomTargetWas || 'red';
+  renderRandomMode();
+  $('soundBubble').disabled=false;
+  $('soundPop').disabled=false;
+  $('soundClassic').disabled=false;
+  $('soundBubble').checked=true;
+  draw();
+}
+function toggleRandomMode(){
+  if(randomMode) exitRandomModeAndSelectFirst();
+  else enterRandomMode();
+}
+function draw(){toggle.classList.toggle('on',running);toggle.querySelector('.word').textContent=running?'ON':'OFF';$('state').textContent=running?'ON':'OFF';$('desc').textContent=running?'Automatically clicking '+($('clickTarget').value==='random'?'the random sound button':'the red button'):($('mode').value==='hold'?'Hold '+hotkey+' to click':'Click the switch or press '+hotkey);$('hotkeyBtn').textContent=hotkey;$('hotkeyHint').textContent=hotkey}
+function clickSelected(){
+  programmaticTargetClick=true;
+  try{ if($('clickTarget').value==='random') randomBtn.click(); else target.click(); }
+  finally{ programmaticTargetClick=false; }
+}
+target.addEventListener('click',()=>{if(randomMode && !programmaticTargetClick)exitRandomModeAndSelectFirst();clicks++;$('clicks').textContent=clicks;playSounds();target.classList.remove('flash');void target.offsetWidth;target.classList.add('flash');const sec=Math.max((Date.now()-started)/1000,.001);if(started)$('rate').textContent=(clicks/sec).toFixed(1)+' / sec';const limit=Number($('limit').value)||0;if(running&&limit>0&&clicks>=limit)stop()});
+randomBtn.addEventListener('click',()=>{
+  if(randomMode){
+    if(programmaticTargetClick) playRandomSound();
+    else exitRandomModeAndSelectFirst();
+  }else{
+    enterRandomMode();
+  }
+});
+randomSwitch.addEventListener('click',(e)=>{ e.preventDefault(); e.stopPropagation(); toggleRandomMode(); });
+randomSwitch.addEventListener('pointerdown',(e)=>{e.stopPropagation();});
+sounds.forEach(([check])=>$(check).addEventListener('change',()=>{if(randomMode){$(check).checked=false;}}));
+randomMode=false; renderRandomMode();
+function start(){if(running)return;running=true;started=Date.now();draw();clickSelected();if(running)timer=setInterval(clickSelected,Math.max(1,intervalMs()));clock=setInterval(()=>{const sec=Math.floor((Date.now()-started)/1000);$('elapsed').textContent=String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')},250)}
+function stop(){running=false;if(timer!==null)clearInterval(timer);if(clock!==null)clearInterval(clock);timer=null;clock=null;draw()}
+toggle.addEventListener('click',()=>running?stop():start());
+$('hotkeyBtn').addEventListener('click',()=>{waiting=true;$('hotkeyBtn').textContent='Press a key...';$('hotkeyBtn').classList.add('listening')});
+function keyName(e){if(e.key===' ')return'Space';return e.key.length===1?e.key.toUpperCase():e.key}
+document.addEventListener('keydown',e=>{if(waiting){e.preventDefault();hotkey=keyName(e);waiting=false;$('hotkeyBtn').textContent=hotkey;$('hotkeyBtn').classList.remove('listening');draw();return}if(keyName(e)!==hotkey||e.repeat)return;e.preventDefault();if($('mode').value==='toggle')running?stop():start();else if(!held){held=true;start()}});
+document.addEventListener('keyup',e=>{if(keyName(e)===hotkey&&$('mode').value==='hold'){held=false;stop()}});
+$('mode').addEventListener('change',()=>{held=false;if(running)stop();draw()});
+$('clickTarget').addEventListener('change',()=>{if(running){stop();start()}else draw()});
+$('intervalValue').addEventListener('input',()=>{syncIntervalBounds();updateIntervalLabel()});
+$('intervalUnit').addEventListener('change',()=>{const ms=intervalMs(),u=Number($('intervalUnit').value);$('intervalValue').value=ms/(u*1000);syncIntervalBounds();updateIntervalLabel();if(running){stop();start()}});
+$('intervalValue').addEventListener('change',()=>{syncIntervalBounds();updateIntervalLabel();if(running){stop();start()}});
+$('limit').addEventListener('change',()=>{if(running&&Number($('limit').value)>0&&clicks>=Number($('limit').value))stop()});
+updateIntervalLabel();draw();
+})();
+</script></body></html>
